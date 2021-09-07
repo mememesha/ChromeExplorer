@@ -1,6 +1,7 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
-using System.Net.Mime;
 
 namespace Explorer.Shared.ViewModels
 {
@@ -11,6 +12,7 @@ namespace Explorer.Shared.ViewModels
         public ObservableCollection<DirectoryTabItemViewModel> DirectoryTabItems { get; set; } =
             new ObservableCollection<DirectoryTabItemViewModel>();
         public DirectoryTabItemViewModel CurrentDirectoryTabItem { get; set; }
+
         #endregion
 
         #region  Commands
@@ -33,13 +35,6 @@ namespace Explorer.Shared.ViewModels
             AddTabItemViewModel();
         }
 
-        #endregion
-
-        #region Private Methods
-        public void ApplicationClosing()
-        {
-            
-        }
         #endregion
 
         #region Commands Methods      
@@ -65,6 +60,7 @@ namespace Explorer.Shared.ViewModels
             DirectoryTabItems.Remove(directoryTabItemViewModel);
             CurrentDirectoryTabItem = DirectoryTabItems.LastOrDefault();
         }
+
         #endregion
 
     }
