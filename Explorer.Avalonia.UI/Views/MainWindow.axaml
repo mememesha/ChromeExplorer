@@ -4,75 +4,101 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModels="clr-namespace:Explorer.Shared.ViewModels;assembly=Explorer.Shared.ViewModels"
         xmlns:ui="clr-namespace:Explorer.Avalonia.UI"
-
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Explorer.Avalonia.UI.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
-        WindowState="Maximized"
+        WindowState="Normal"
         WindowStartupLocation="CenterScreen"
+        HasSystemDecorations="False"
         >
-
+    
   <Design.DataContext>
       <viewModels:MainViewModel/>
   </Design.DataContext>
-  
-  <Grid>
-    <TabControl  Items="{Binding DirectoryTabItems}"
-                SelectedItem="{Binding CurrentDirectoryTabItem}">
-        <TabControl.ItemTemplate>
-            <DataTemplate>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="{Binding Name}" />
-                    <Button Width="{Binding $self.Bounds.Height}"
-                            HorizontalContentAlignment="Center"
-                            VerticalContentAlignment="Center"
-                            Command="{Binding CloseCommand}">x</Button>
-                </StackPanel>
-            </DataTemplate>
-        </TabControl.ItemTemplate>
-        <TabControl.ContentTemplate>
-            <DataTemplate>
-                <ui:DirectoryTabItem />
-            </DataTemplate>
-        </TabControl.ContentTemplate>
-        <TabControl.Template>
-            <ControlTemplate>
-                <Border
-                    BorderBrush="{TemplateBinding BorderBrush}"
-                    BorderThickness="{TemplateBinding BorderThickness}"
-                    CornerRadius="{TemplateBinding CornerRadius}"
-                    Background="{TemplateBinding Background}"
-                    HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
-                    VerticalAlignment="{TemplateBinding VerticalAlignment}">
-                    <StackPanel>
-                        <StackPanel  DockPanel.Dock="Top" Orientation="Horizontal">
-                            <ItemsPresenter
-                                Name="PART_ItemsPresenter"
-                                Items="{TemplateBinding Items}"
-                                ItemsPanel="{TemplateBinding ItemsPanel}"
-                                ItemTemplate="{TemplateBinding ItemTemplate}">
-                            </ItemsPresenter>
-                          <Button
-                              Width="{Binding $self.Bounds.Height}"
-                              HorizontalContentAlignment="Center"
-                              VerticalContentAlignment="Center"
-                              Margin="2"
-                              Command="{Binding AddNewTabCommand}"
-                              Content="+" />
-                        </StackPanel>
-                        <ContentPresenter
-                            Name="PART_SelectedContentHost"
-                            Margin="{TemplateBinding Padding}"
-                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                            Content="{TemplateBinding SelectedContent}"
-                            ContentTemplate="{TemplateBinding SelectedContentTemplate}">
-                        </ContentPresenter>
-                    </StackPanel>
-                </Border>
-            </ControlTemplate>
-        </TabControl.Template>
-    </TabControl>
-  </Grid>
-    
+
+ <Window.Styles>
+     <Style Selector="Window">
+         <Setter Property="Template">
+             <ControlTemplate>
+                 <Border Background="Black">
+
+                     <Grid>
+
+                      <Grid.RowDefinitions>
+                           <!--Title Bar-->
+                           <RowDefinition Height="40"/>
+                           <!--BookMarks-->
+                           <RowDefinition Height="36"/>
+                           <!--TabItemContent-->
+                           <RowDefinition Height="*"/>
+                     </Grid.RowDefinitions>
+
+                     <!--Title Bar-->
+                     <Grid>
+                       <Grid.ColumnDefinitions>
+                         <ColumnDefinition Width="Auto"/>
+                         <ColumnDefinition Width="Auto"/>
+                         <ColumnDefinition Width="*"/>
+                         <ColumnDefinition Width="Auto"/>
+                       </Grid.ColumnDefinitions>
+                       <ListBox
+                           Items="{Binding DirectoryTabItems}"
+                           SelectedItem="{Binding CurrentDirectoryTabItem}">
+                         <ListBox.ItemsPanel>
+                           <ItemsPanelTemplate>
+                             <StackPanel Orientation="Horizontal">
+                             </StackPanel>
+                           </ItemsPanelTemplate>
+                         </ListBox.ItemsPanel>
+                         <ListBox.ItemTemplate>
+                           <DataTemplate>
+                               <StackPanel Orientation="Horizontal">
+                                   <TextBlock Text="{Binding Name}" />
+                                   <Button Width="{Binding $self.Bounds.Height}"
+                                           HorizontalContentAlignment="Center"
+                                           VerticalContentAlignment="Center"
+                                           Command="{Binding CloseCommand}">x</Button>
+                               </StackPanel>
+                           </DataTemplate>
+                         </ListBox.ItemTemplate>
+                       </ListBox>
+                         <Button
+                             Grid.Column="1"
+                             Width="{Binding $self.Bounds.Height}"
+                             HorizontalContentAlignment="Center"
+                             VerticalContentAlignment="Center"
+                             Margin="2"
+                             Command="{Binding AddNewTabCommand}"
+                             Content="+" />
+                       <StackPanel Grid.Column="2"
+                                   HorizontalAlignment="Right"
+                                   VerticalAlignment="Top"
+                                   Orientation="Horizontal">
+                           <Button Click="CollapseButton_OnClick" Width="44" Height="30">_</Button>
+                           <Button Click="ExpandButton_OnClick" Width="44" Height="30">P</Button>
+                           <Button Click="CloseButton_OnClick" Width="44" Height="30">X</Button>
+                       </StackPanel>
+                     </Grid>
+
+                     <StackPanel Grid.Row="1" Background="#FF353535">
+                       <Menu>
+                         <MenuItem Header="Games"></MenuItem>
+                       </Menu>
+                     </StackPanel>
+
+                     <ContentControl
+                                     Grid.Row="2"
+                                     Content="{Binding CurrentDirectoryTabItem}">
+                       <ContentControl.ContentTemplate>
+                         <DataTemplate>
+                             <ui:DirectoryTabItem />
+                         </DataTemplate>
+                       </ContentControl.ContentTemplate>
+                     </ContentControl>
+                   </Grid>
+                 </Border>
+             </ControlTemplate>
+         </Setter>
+     </Style>
+ </Window.Styles> 
 </Window>
