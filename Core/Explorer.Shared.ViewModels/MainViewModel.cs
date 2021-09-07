@@ -58,7 +58,7 @@ namespace Explorer.Shared.ViewModels
         {
             directoryTabItemViewModel.Closed -= vm_Closed;
             DirectoryTabItems.Remove(directoryTabItemViewModel);
-            CurrentDirectoryTabItem = DirectoryTabItems.FirstOrDefault();
+            CurrentDirectoryTabItem = DirectoryTabItems.LastOrDefault();
         }
 
         #endregion
