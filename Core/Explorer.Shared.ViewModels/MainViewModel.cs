@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net.Mime;
 
@@ -13,8 +14,13 @@ namespace Explorer.Shared.ViewModels
         public DirectoryTabItemViewModel CurrentDirectoryTabItem { get; set; }
         #endregion
 
+        #region Events
+        public event EventHandler Closed;
+        #endregion
+
         #region  Commands
 
+        public DelegateCommand CloseCommand { get; }
         public DelegateCommand AddNewTabCommand { get; }
 
         #endregion
@@ -24,6 +30,7 @@ namespace Explorer.Shared.ViewModels
         public MainViewModel()
         {
             AddNewTabCommand = new DelegateCommand(OnAddTabItem);
+            CloseCommand = new DelegateCommand(OnClose);
             AddTabItemViewModel();            
             CurrentDirectoryTabItem = DirectoryTabItems.FirstOrDefault();
         }
@@ -46,25 +53,23 @@ namespace Explorer.Shared.ViewModels
         private void AddTabItemViewModel()
         {
             var vm = new DirectoryTabItemViewModel();
-            vm.Closed += vm_Closed;   
             DirectoryTabItems.Add(vm);
             CurrentDirectoryTabItem = vm;
         }
-
-        private void vm_Closed(object sender, System.EventArgs e)
+        
+        private void CloseTab(DirectoryTabItemViewModel directoryTabItemViewModel)
         {
-            if(sender is DirectoryTabItemViewModel directoryTabItemViewModel)
+            DirectoryTabItems.Remove(directoryTabItemViewModel);
+            CurrentDirectoryTabItem = DirectoryTabItems.LastOrDefault();
+        }
+        private void OnClose(object obj)
+        {
+            if (obj is DirectoryTabItemViewModel directoryTabItemViewModel)
             {
                 CloseTab(directoryTabItemViewModel);
             }
         }
 
-        private void CloseTab(DirectoryTabItemViewModel directoryTabItemViewModel)
-        {
-            directoryTabItemViewModel.Closed -= vm_Closed;
-            DirectoryTabItems.Remove(directoryTabItemViewModel);
-            CurrentDirectoryTabItem = DirectoryTabItems.LastOrDefault();
-        }
         #endregion
 
     }

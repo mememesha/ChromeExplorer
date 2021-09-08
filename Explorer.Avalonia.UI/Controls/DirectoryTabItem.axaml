@@ -10,8 +10,7 @@
   
   
   <Grid RowDefinitions="Auto,*">
-    <TextBlock Grid.Row="0" Text="{Binding FilePath}"/>
-    <ListBox
+      <ListBox
         x:Name="ListBox"
         Grid.Row="1"
         Items="{Binding DirectoriesAndFiles}"
