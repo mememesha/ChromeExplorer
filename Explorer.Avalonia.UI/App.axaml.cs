@@ -2,6 +2,7 @@ using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using Explorer.Avalonia.UI.Views;
+using Explorer.Shared.ViewModels;
 
 namespace Explorer.Avalonia.UI
 {
@@ -16,7 +17,10 @@ namespace Explorer.Avalonia.UI
         {
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
-                desktop.MainWindow = new MainWindow();
+                desktop.MainWindow = new MainWindow
+                {
+                    DataContext = new MainViewModel(),
+                };
             }
 
             base.OnFrameworkInitializationCompleted();
