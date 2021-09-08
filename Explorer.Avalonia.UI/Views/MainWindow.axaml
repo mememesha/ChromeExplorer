@@ -4,11 +4,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModels="clr-namespace:Explorer.Shared.ViewModels;assembly=Explorer.Shared.ViewModels"
         xmlns:ui="clr-namespace:Explorer.Avalonia.UI"
-
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Explorer.Avalonia.UI.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
-        WindowState="Maximized"
+        WindowState="Normal"
         WindowStartupLocation="CenterScreen"
         HasSystemDecorations="False"
         x:Name="Window">
