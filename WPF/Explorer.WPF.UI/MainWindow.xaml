@@ -7,8 +7,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="clr-namespace:Explorer.WPF.UI"
-    Width="1300"
-    Height="750"
+    Width="1024"
+    Height="720"
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
     mc:Ignorable="d">
@@ -102,7 +102,7 @@
                                     <TextBox Grid.Column="3" Grid.Row="0" Text="{Binding CurrentDirectoryTabItem.FilePath}" />
                                 </Grid>
 
-                                <StackPanel Grid.Row="2" Background="#FF353535">
+                                <StackPanel Grid.Row="2">
                                     <Menu>
                                         <MenuItem Header="Games"></MenuItem>
                                     </Menu>
@@ -113,7 +113,11 @@
                                                 Content="{Binding CurrentDirectoryTabItem}">
                                     <ContentControl.ContentTemplate>
                                         <DataTemplate>
-                                            <ui:DirectoryTabItem />
+                                            <ui:DirectoryTabItem >
+                                                <ui:DirectoryTabItem.Background>
+                                                    <SolidColorBrush Color="#DF1D2125"/>
+                                                </ui:DirectoryTabItem.Background>
+                                            </ui:DirectoryTabItem>
                                         </DataTemplate>
                                     </ContentControl.ContentTemplate>
                                 </ContentControl>

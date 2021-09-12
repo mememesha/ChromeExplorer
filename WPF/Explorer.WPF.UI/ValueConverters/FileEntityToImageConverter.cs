@@ -14,7 +14,7 @@ namespace Explorer.WPF.UI
             var drivingImage = new DrawingImage();
             if (value is DirectoryViewModel)
             {
-                var resource = App.Current.TryFindResource("FolderIconImage");
+                var resource = App.Current.TryFindResource("FolderIconImagePng");
                 if (resource is not ImageSource directoryImageSource) return drivingImage;
                 return directoryImageSource;
             }

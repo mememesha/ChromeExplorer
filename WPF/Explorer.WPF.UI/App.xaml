@@ -16,6 +16,7 @@
                 </DrawingGroup>
             </DrawingImage.Drawing>
         </DrawingImage>
+
         <DrawingImage x:Key="DocumentIconImage">
             <DrawingImage.Drawing>
                 <DrawingGroup ClipGeometry="M0,0 V512 H512 V0 H0 Z">
@@ -24,5 +25,7 @@
                 </DrawingGroup>
             </DrawingImage.Drawing>
         </DrawingImage>
+
+        <ImageSource x:Key="FolderIconImagePng">/Explorer.WPF.UI;component/Assets/folder_icon.png</ImageSource>
     </Application.Resources>
 </Application>
