@@ -127,7 +127,9 @@
                   <DataTemplate>
                     <ui:DirectoryTabItem>
                         <ui:DirectoryTabItem.Background>
-                            <SolidColorBrush Color="#DF1D2125" />
+                          <ImageBrush
+                              Stretch="UniformToFill"
+                              Source="avares://Explorer.Avalonia.UI/Assets/1624289129_35-phonoteka_org-p-oboi-na-mak-krasivo-36.jpg"></ImageBrush>
                         </ui:DirectoryTabItem.Background>
                     </ui:DirectoryTabItem>
                   </DataTemplate>

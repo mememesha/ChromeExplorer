@@ -13,6 +13,9 @@
     <EmbeddedResource Remove="Models\**" />
     <None Remove="Models\**" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="Assets\1624289129_35-phonoteka_org-p-oboi-na-mak-krasivo-36.jpg" />
+  </ItemGroup>
   
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="0.10.7" />
@@ -27,6 +30,7 @@
     <ProjectReference Include="..\Core\Explorer.Shared.ViewModels\Explorer.Shared.ViewModels.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Assets\1624289129_35-phonoteka_org-p-oboi-na-mak-krasivo-36.jpg" />
     <Resource Include="Assets\avalonia-logo.ico" />
     <Resource Include="Assets\folder_icon.png" />
   </ItemGroup>
