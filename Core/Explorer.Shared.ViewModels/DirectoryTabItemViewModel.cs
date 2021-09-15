@@ -69,7 +69,6 @@ namespace Explorer.Shared.ViewModels
                 OpenDirectory();
             }
         }
-
         private bool CanMoveBack(object obj) => _history.CanMoveBack;
         private void OnMoveBack(object obj)
         {
