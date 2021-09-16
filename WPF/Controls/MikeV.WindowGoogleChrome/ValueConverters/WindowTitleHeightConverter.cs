@@ -1,9 +1,8 @@
-﻿
-using System;
+﻿using System;
 using System.Globalization;
 using System.Windows;
 
-namespace Explorer.WPF.UI
+namespace MikeV.WindowGoogleChrome
 {
     internal class WindowTitleHeightConverter : ConvertorBase<WindowTitleHeightConverter>
     {

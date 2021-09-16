@@ -1,7 +1,7 @@
 ﻿
 using System.Windows;
 
-namespace Explorer.WPF.UI
+namespace MikeV.WindowGoogleChrome
 {
     internal class Windows
     {

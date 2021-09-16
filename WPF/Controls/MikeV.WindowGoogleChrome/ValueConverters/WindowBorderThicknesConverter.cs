@@ -2,8 +2,7 @@
 using System.Globalization;
 using System.Windows;
 
-
-namespace Explorer.WPF.UI
+namespace MikeV.WindowGoogleChrome
 {
     public class WindowBorderThicknesConverter : ConvertorBase<WindowBorderThicknesConverter>
     {

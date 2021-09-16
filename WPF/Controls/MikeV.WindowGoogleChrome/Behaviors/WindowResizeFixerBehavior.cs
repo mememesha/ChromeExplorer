@@ -1,9 +1,7 @@
-﻿using System;
-using System.Windows;
-using Explorer.WPF.UI.Behaviors;
+﻿using System.Windows;
 using Microsoft.Xaml.Behaviors;
 
-namespace Explorer.WPF.UI
+namespace MikeV.WindowGoogleChrome
 {
     internal class WindowResizeFixerBehavior : Behavior<Window>
     {

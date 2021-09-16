@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Media;
 
-namespace Explorer.WPF.UI.Behaviors
+namespace MikeV.WindowGoogleChrome
 {
 
     /// <summary>

@@ -16,12 +16,18 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\Explorer.Shared.ViewModels\Explorer.Shared.ViewModels.csproj" />
+    <ProjectReference Include="..\Controls\MikeV.WindowGoogleChrome\MikeV.WindowGoogleChrome.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Assets\1624289129_35-phonoteka_org-p-oboi-na-mak-krasivo-36.jpg" />
     <Resource Include="Assets\folder_icon.png" />
     <Resource Include="Assets\macfondobigsur-2048x1152.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="AttachedProperties\" />
+    <Folder Include="Behaviors\" />
   </ItemGroup>
 
 </Project>
