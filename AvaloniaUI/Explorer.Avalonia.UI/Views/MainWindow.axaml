@@ -2,16 +2,72 @@
                                        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                                        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                                        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                                       xmlns:ui="clr-namespace:Explorer.Avalonia.UI;assembly=Explorer.Avalonia.UI"
                                        xmlns:viewModels="clr-namespace:Explorer.Shared.ViewModels;assembly=Explorer.Shared.ViewModels"
                                        xmlns:googleChromeWindow="clr-namespace:MikeV.WindowGoogleChrome.Avalonia;assembly=MikeV.WindowGoogleChrome.Avalonia"
                                        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-                                       x:Class="Explorer.Avalonia.UI.Views.MainWindow"
-                                       Icon="/Assets/avalonia-logo.ico"
-                                       x:Name="Window">
-  >
+                                       Classes="GoogleChromeWindowClass"
+                                       x:Class="Explorer.Avalonia.UI.Views.MainWindow">
 
   <Design.DataContext>
     <viewModels:MainViewModel/>
   </Design.DataContext>
- 
+  
+  <googleChromeWindow:GoogleChromeWindow.ToolBarContent>
+    <Grid>
+      <Grid.RowDefinitions>
+        <!--Search TextBox-->
+        <RowDefinition Height="40"/>
+        <!--BookMarks-->
+        <RowDefinition Height="36"/>
+      </Grid.RowDefinitions>
+      
+      <Grid Grid.Row="0">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+          </Grid.ColumnDefinitions>
+          <Button
+              Command="{Binding CurrentDirectoryTabItem.MoveBackCommand}"
+              Width="{Binding $self.Bounds.Height}"
+              Margin="2"
+              Grid.Column="0"
+              Content="lt"/>
+          <Button
+              Command="{Binding CurrentDirectoryTabItem.MoveForwardCommand}"
+              Width="{Binding $self.Bounds.Height}"
+              Margin="2"
+              Grid.Column="1"
+              Content="gt"/>
+          <Button
+              Command="{Binding CurrentDirectoryTabItem.UpdatePageCommand}"
+              Width="{Binding $self.Bounds.Height}"
+              Margin="2"
+              Grid.Column="2"
+              Content="o"/>
+          <TextBox Grid.Column="3" Grid.Row="0" Text="{Binding CurrentDirectoryTabItem.FilePath}" />
+        </Grid>
+      <StackPanel Grid.Row="1" Background="#FF353535">
+        <Menu>
+          <MenuItem Header="Games"></MenuItem>
+        </Menu>
+      </StackPanel>
+      
+   </Grid>
+  </googleChromeWindow:GoogleChromeWindow.ToolBarContent>
+  
+  <ContentControl Content="{Binding CurrentDirectoryTabItem}">
+    <ContentControl.ContentTemplate>
+      <DataTemplate>
+        <ui:DirectoryTabItem>
+          <ui:DirectoryTabItem.Background>
+               <SolidColorBrush Color="#35363A"/>           
+          </ui:DirectoryTabItem.Background>
+        </ui:DirectoryTabItem>
+      </DataTemplate>
+    </ContentControl.ContentTemplate>
+</ContentControl>
+  
 </googleChromeWindow:GoogleChromeWindow>

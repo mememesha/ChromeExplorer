@@ -47,7 +47,7 @@
                             </Grid.RowDefinitions>
 
                             <!-- #region  Title Bar  -->
-                            <Grid Height="{Binding WindowState,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type Window}},
+                            <Grid  Height="{Binding WindowState,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type Window}},
                         Converter={local:WindowTitleHeightConverter},ConverterParameter=2}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto" />
@@ -295,7 +295,7 @@
                             <!--#endregion-->
 
                             <!--ToolBar-->
-                            <ContentControl Grid.Row="1" Content="{TemplateBinding ToolBarContent}"/>
+                            <ContentControl Margin="0 -1 0 0" Grid.Row="1" Content="{TemplateBinding ToolBarContent}"/>
 
                             <!--  TabItemContent  -->
                             <ContentPresenter Grid.Row="2" />

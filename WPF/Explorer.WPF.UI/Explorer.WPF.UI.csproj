@@ -7,6 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="AttachedProperties\**" />
+    <Compile Remove="Behaviors\**" />
+    <EmbeddedResource Remove="AttachedProperties\**" />
+    <EmbeddedResource Remove="Behaviors\**" />
+    <None Remove="AttachedProperties\**" />
+    <None Remove="Behaviors\**" />
+    <Page Remove="AttachedProperties\**" />
+    <Page Remove="Behaviors\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Assets\1624289129_35-phonoteka_org-p-oboi-na-mak-krasivo-36.jpg" />
   </ItemGroup>
 
@@ -23,11 +34,6 @@
     <Resource Include="Assets\1624289129_35-phonoteka_org-p-oboi-na-mak-krasivo-36.jpg" />
     <Resource Include="Assets\folder_icon.png" />
     <Resource Include="Assets\macfondobigsur-2048x1152.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="AttachedProperties\" />
-    <Folder Include="Behaviors\" />
   </ItemGroup>
 
 </Project>

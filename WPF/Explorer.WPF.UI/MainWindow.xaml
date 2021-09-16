@@ -17,7 +17,7 @@
                 <RowDefinition Height="36" />
             </Grid.RowDefinitions>
             <!--SearchTextBox-->
-            <Grid Background="#35363A">
+            <Grid Grid.Row="0" Background="#35363A">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="Auto" />

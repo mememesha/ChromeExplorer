@@ -1,49 +1,5 @@
 <Styles xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
-    <Style Selector="Button.SystemWindowButton">
-        <Setter Property="Width" Value="44" />
-        <Setter Property="Height" Value="28" />
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="BorderBrush" Value="Transparent"/>
-        <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="Foreground" Value="White"/>
-        <Setter Property="HorizontalContentAlignment" Value="Center"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Padding" Value="4"/>
-        <Setter Property="Template">
-          <ControlTemplate>
-              <Border x:Name="Border"
-                      Background="{TemplateBinding Background}"
-                      BorderBrush="{TemplateBinding BorderBrush}"
-                      BorderThickness="{TemplateBinding BorderThickness}"
-                      CornerRadius="{TemplateBinding CornerRadius}">
-                  <Viewbox Width="19"
-                           Height="19"
-                           Stretch="Uniform">
-                      <ContentPresenter Background="Transparent" BorderThickness="0" BorderBrush="Transparent" Name="PART_ContentPresenter"
-                                        ContentTemplate="{TemplateBinding ContentTemplate}"
-                                        Content="{TemplateBinding Content}"
-                                        Padding="{TemplateBinding Padding}"
-                                        TextBlock.Foreground="{TemplateBinding Foreground}"
-                                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
-
-                  </Viewbox>
-              </Border>
-          </ControlTemplate>
-      </Setter>
-  </Style>
-    <Style Selector="Button.SystemWindowButton:pointerover /template/ Border">
-      <Setter Property="Background" Value="#1A1A1A"/>
-    </Style>
-    <Style Selector="Button.SystemMainCloseButtonStyle:pointerover /template/ Border">
-        <Setter Property="Background" Value="#E81123"/>
-    </Style>
-    <Style Selector="Button.SystemWindowButton:pressed  /template/ Border">
-      <Setter Property="Background" Value="#333333"/>
-    </Style>
-    <Style Selector="Button.SystemMainCloseButtonStyle:pressed  /template/ Border">
-        <Setter Property="Background" Value="#8A0A14"/>
-    </Style>
+   
 </Styles>
