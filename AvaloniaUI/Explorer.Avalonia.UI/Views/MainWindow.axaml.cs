@@ -4,10 +4,11 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using Explorer.Shared.ViewModels;
+using MikeV.WindowGoogleChrome.Avalonia;
 
 namespace Explorer.Avalonia.UI.Views
 {
-    public partial class MainWindow : Window
+    public partial class MainWindow:GoogleChromeWindow
     {
         private MainViewModel _mainVm;
         public MainWindow()
@@ -20,7 +21,6 @@ namespace Explorer.Avalonia.UI.Views
             _mainVm = new MainViewModel();
             DataContext = _mainVm;
         }
-
         private void InitializeComponent()
         {
             AvaloniaXamlLoader.Load(this);

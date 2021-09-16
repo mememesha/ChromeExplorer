@@ -11,13 +11,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{CFD37BB4-9
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Explorer.WPF.UI", "WPF\Explorer.WPF.UI\Explorer.WPF.UI.csproj", "{DA387D7F-3D0E-4FD6-976B-BF2892764FFF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Explorer.Avalonia.UI", "Explorer.Avalonia.UI\Explorer.Avalonia.UI.csproj", "{231B6136-735F-41BD-BED1-CFA5D599F157}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Explorer.Avalonia.UI", "AvaloniaUI\Explorer.Avalonia.UI\Explorer.Avalonia.UI.csproj", "{231B6136-735F-41BD-BED1-CFA5D599F157}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Explorer.Shared.ViewModels", "Core\Explorer.Shared.ViewModels\Explorer.Shared.ViewModels.csproj", "{1475DFFF-B536-4353-A757-B5A9A08281AF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Controls", "Controls", "{68A8FD7A-23CF-46A1-BF39-B7E0A058D3DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MikeV.WindowGoogleChrome", "WPF\Controls\MikeV.WindowGoogleChrome\MikeV.WindowGoogleChrome.csproj", "{675749EF-46BF-459F-B48D-2F9E1B0E21F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MikeV.WindowGoogleChrome.Wpf", "WPF\Controls\MikeV.WindowGoogleChrome\MikeV.WindowGoogleChrome.Wpf.csproj", "{675749EF-46BF-459F-B48D-2F9E1B0E21F8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Controls", "Controls", "{DAC5FDF5-2807-4A31-AC3D-DA30125D6037}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MikeV.WindowGoogleChrome.Avalonia", "AvaloniaUI\Controls\MikeV.WindowGoogleChrome.Avalonia\MikeV.WindowGoogleChrome.Avalonia.csproj", "{3718D4D7-34CE-4173-A27B-4DA6E4D2C172}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +45,10 @@ Global
 		{675749EF-46BF-459F-B48D-2F9E1B0E21F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{675749EF-46BF-459F-B48D-2F9E1B0E21F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{675749EF-46BF-459F-B48D-2F9E1B0E21F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3718D4D7-34CE-4173-A27B-4DA6E4D2C172}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3718D4D7-34CE-4173-A27B-4DA6E4D2C172}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3718D4D7-34CE-4173-A27B-4DA6E4D2C172}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3718D4D7-34CE-4173-A27B-4DA6E4D2C172}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,6 +59,8 @@ Global
 		{1475DFFF-B536-4353-A757-B5A9A08281AF} = {CFD37BB4-900D-401E-994A-40E5BB48E37D}
 		{68A8FD7A-23CF-46A1-BF39-B7E0A058D3DF} = {B1139DBA-AA6D-4A6A-B0BF-163B4103D242}
 		{675749EF-46BF-459F-B48D-2F9E1B0E21F8} = {68A8FD7A-23CF-46A1-BF39-B7E0A058D3DF}
+		{DAC5FDF5-2807-4A31-AC3D-DA30125D6037} = {B736D01A-FC56-46B9-B0F8-1B50890A72CE}
+		{3718D4D7-34CE-4173-A27B-4DA6E4D2C172} = {DAC5FDF5-2807-4A31-AC3D-DA30125D6037}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8C637F90-E86A-4DDE-86C4-F181A2A581F2}

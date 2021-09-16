@@ -1,0 +1,152 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
+        xmlns:ia="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
+        xmlns:local="clr-namespace:MikeV.WindowGoogleChrome.Avalonia">
+    <Design.PreviewWith>
+        <local:GoogleChromeWindow Width="1024" Height="720"/>
+    </Design.PreviewWith>
+
+  <Style Selector="local|GoogleChromeWindow">
+      <Setter Property="WindowState" Value="Normal"/>
+      <Setter Property="WindowStartupLocation" Value="CenterScreen"/>
+      <Setter Property="HasSystemDecorations" Value="False"/>
+      <Setter Property="Width" Value="1024"/>
+      <Setter Property="Height" Value="720"/>
+      <Setter Property="Template">
+      <ControlTemplate>
+        <Border Background="Black">
+
+          <Grid>
+
+            <Grid.RowDefinitions>
+              <!--Title Bar-->
+              <RowDefinition Height="40"/>
+              <!--Search TextBox-->
+              <RowDefinition Height="40"/>
+              <!--BookMarks-->
+              <RowDefinition Height="36"/>
+              <!--TabItemContent-->
+              <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!--Title Bar-->
+            <Grid>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+              </Grid.ColumnDefinitions>
+              <ListBox
+                  Items="{Binding DirectoryTabItems}"
+                  SelectedItem="{Binding CurrentDirectoryTabItem}">
+                <ListBox.ItemsPanel>
+                  <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal">
+                    </StackPanel>
+                  </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                  <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                      <TextBlock Text="{Binding Name}" />
+                      <Button Width="{Binding $self.Bounds.Height}"
+                              HorizontalContentAlignment="Center"
+                              VerticalContentAlignment="Center"
+                              CommandParameter="{Binding}"
+                              Command="{Binding DataContext.CloseCommand,ElementName=Window}">x</Button>
+                    </StackPanel>
+                  </DataTemplate>
+                </ListBox.ItemTemplate>
+              </ListBox>
+              <Button
+                  Grid.Column="1"
+                  Width="{Binding $self.Bounds.Height}"
+                  HorizontalContentAlignment="Center"
+                  VerticalContentAlignment="Center"
+                  Margin="2"
+                  Command="{Binding AddNewTabCommand}"
+                  Content="+" />
+              <StackPanel Grid.Column="2"
+                          HorizontalAlignment="Right"
+                          VerticalAlignment="Top"
+                          Orientation="Horizontal">
+                <Button Classes="SystemWindowButton">
+                  <Canvas Width="24" Height="24">
+                    <Path Data="M20,14H4V10H20"
+                          Fill="{Binding $parent[Button].Foreground}" />
+                  </Canvas>
+                </Button>
+                <Button Classes="SystemWindowButton">
+                  <Canvas Width="24" Height="24">
+                    <Path Data="M4,4H20V20H4V4M6,8V18H18V8H6Z"
+                          Fill="#666666" />
+                  </Canvas>
+                </Button>
+                <Button Classes="SystemWindowButton SystemMainCloseButtonStyle">
+                  <Canvas Width="24" Height="24">
+                    <Path
+                        Data="M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z"
+                        Fill="{Binding $parent[Button].Foreground}" />
+                  </Canvas>
+                </Button>
+              </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="1">
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+              </Grid.ColumnDefinitions>
+              <Button
+                  Command="{Binding CurrentDirectoryTabItem.MoveBackCommand}"
+                  Width="{Binding $self.Bounds.Height}"
+                  Margin="2"
+                  Grid.Column="0"
+                  Content="lt"/>
+              <Button
+                  Command="{Binding CurrentDirectoryTabItem.MoveForwardCommand}"
+                  Width="{Binding $self.Bounds.Height}"
+                  Margin="2"
+                  Grid.Column="1"
+                  Content="gt"/>
+              <Button
+                  Command="{Binding CurrentDirectoryTabItem.UpdatePageCommand}"
+                  Width="{Binding $self.Bounds.Height}"
+                  Margin="2"
+                  Grid.Column="2"
+                  Content="o"/>
+              <TextBox Grid.Column="3" Grid.Row="0" Text="{Binding CurrentDirectoryTabItem.FilePath}" />
+            </Grid>
+
+            <StackPanel Grid.Row="2" Background="#FF353535">
+              <Menu>
+                <MenuItem Header="Games"></MenuItem>
+              </Menu>
+            </StackPanel>
+
+            <!--<ContentControl
+                            Grid.Row="3"
+                            Content="{Binding CurrentDirectoryTabItem}">
+              <ContentControl.ContentTemplate>
+                <DataTemplate>
+                  <ui:DirectoryTabItem>
+                    <ui:DirectoryTabItem.Background>
+                      <SolidColorBrush Color="#35363A"/>
+                      --><!--<ImageBrush
+                            Stretch="UniformToFill"
+                            Source="avares://Explorer.Avalonia.UI/Assets/1624289129_35-phonoteka_org-p-oboi-na-mak-krasivo-36.jpg"></ImageBrush>--><!--
+                    </ui:DirectoryTabItem.Background>
+                  </ui:DirectoryTabItem>
+                </DataTemplate>
+              </ContentControl.ContentTemplate>
+            </ContentControl>-->
+          </Grid>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+</Styles>

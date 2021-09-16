@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Windows.Data;
 using System.Windows.Markup;
 
-namespace MikeV.WindowGoogleChrome
+namespace MikeV.WindowGoogleChrome.Wpf
 {
     public abstract class ConvertorBase<T> : MarkupExtension, IValueConverter where T: class, new()
     {

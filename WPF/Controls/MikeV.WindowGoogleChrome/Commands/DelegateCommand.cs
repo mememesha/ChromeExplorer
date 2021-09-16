@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace MikeV.WindowGoogleChrome
+namespace MikeV.WindowGoogleChrome.Wpf
 {
     internal class DelegateCommand : ICommand
     {

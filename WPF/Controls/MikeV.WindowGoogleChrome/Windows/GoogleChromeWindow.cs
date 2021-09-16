@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Input;
 
-namespace MikeV.WindowGoogleChrome
+namespace MikeV.WindowGoogleChrome.Wpf
 {
     public class GoogleChromeWindow : Window
     {

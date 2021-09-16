@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using Microsoft.Xaml.Behaviors;
 
-namespace MikeV.WindowGoogleChrome
+namespace MikeV.WindowGoogleChrome.Wpf
 {
     internal class WindowResizeFixerBehavior : Behavior<Window>
     {

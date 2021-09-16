@@ -16,7 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\Explorer.Shared.ViewModels\Explorer.Shared.ViewModels.csproj" />
-    <ProjectReference Include="..\Controls\MikeV.WindowGoogleChrome\MikeV.WindowGoogleChrome.csproj" />
+    <ProjectReference Include="..\Controls\MikeV.WindowGoogleChrome\MikeV.WindowGoogleChrome.Wpf.csproj" />
   </ItemGroup>
 
   <ItemGroup>

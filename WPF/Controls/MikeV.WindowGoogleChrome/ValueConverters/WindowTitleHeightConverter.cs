@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Windows;
 
-namespace MikeV.WindowGoogleChrome
+namespace MikeV.WindowGoogleChrome.Wpf
 {
     internal class WindowTitleHeightConverter : ConvertorBase<WindowTitleHeightConverter>
     {

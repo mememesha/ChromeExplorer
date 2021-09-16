@@ -1,10 +1,10 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:MikeV.WindowGoogleChrome">
+                    xmlns:local="clr-namespace:MikeV.WindowGoogleChrome.Wpf">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/MikeV.WindowGoogleChrome;component/Themes/ChromeTabs.xaml"/>
-        <ResourceDictionary Source="/MikeV.WindowGoogleChrome;component/Themes/Buttons.xaml"/>
+        <ResourceDictionary Source="/MikeV.WindowGoogleChrome.Wpf;component/Themes/ChromeTabs.xaml"/>
+        <ResourceDictionary Source="/MikeV.WindowGoogleChrome.Wpf;component/Themes/Buttons.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style TargetType="{x:Type local:GoogleChromeWindow}">

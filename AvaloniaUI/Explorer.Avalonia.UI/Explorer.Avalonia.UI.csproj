@@ -27,7 +27,8 @@
     <PackageReference Include="Avalonia.Xaml.Interactivity" Version="0.10.7.1" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Core\Explorer.Shared.ViewModels\Explorer.Shared.ViewModels.csproj" />
+    <ProjectReference Include="..\..\Core\Explorer.Shared.ViewModels\Explorer.Shared.ViewModels.csproj" />
+    <ProjectReference Include="..\Controls\MikeV.WindowGoogleChrome.Avalonia\MikeV.WindowGoogleChrome.Avalonia.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\1624289129_35-phonoteka_org-p-oboi-na-mak-krasivo-36.jpg" />
