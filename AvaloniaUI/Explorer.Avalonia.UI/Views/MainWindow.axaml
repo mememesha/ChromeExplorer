@@ -47,11 +47,11 @@
               Margin="2"
               Grid.Column="2"
               Content="o"/>
-          <TextBox Grid.Column="3" Grid.Row="0" Text="{Binding CurrentDirectoryTabItem.FilePath}" />
+          <TextBox Foreground="White" Grid.Column="3" Grid.Row="0" Text="{Binding CurrentDirectoryTabItem.FilePath}" />
         </Grid>
       <StackPanel Grid.Row="1" Background="#FF353535">
         <Menu>
-          <MenuItem Header="Games"></MenuItem>
+          <MenuItem Foreground="White" Header="Games"></MenuItem>
         </Menu>
       </StackPanel>
       

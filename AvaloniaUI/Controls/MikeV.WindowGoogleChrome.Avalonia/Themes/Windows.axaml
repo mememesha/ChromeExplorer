@@ -29,8 +29,17 @@
             </Grid.RowDefinitions>
 
             <!--Title Bar-->
-            <Grid>
-              <Grid.ColumnDefinitions>
+            <Grid x:Name="TitleBarGrid">
+                <Grid.Styles>
+                    <Style Selector="Button">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="BorderBrush" Value="Transparent" />
+                        <Setter Property="BorderThickness" Value="0" />
+                        <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        <Setter Property="VerticalContentAlignment" Value="Center" />
+                    </Style>
+                </Grid.Styles>
+                <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
@@ -70,24 +79,74 @@
                           HorizontalAlignment="Right"
                           VerticalAlignment="Top"
                           Orientation="Horizontal">
-                <Button Classes="SystemWindowButton">
-                  <Canvas Width="24" Height="24">
-                    <Path Data="M20,14H4V10H20"
+                <StackPanel.Styles>
+                      <Style Selector="Button">
+                          <Setter Property="Width" Value="44" />
+                          <Setter Property="Height" Value="28" />
+                      </Style>
+                      <Style Selector="Button:pointerover">
+                          <Setter Property="Background" Value="#1A1A1A"/>
+                      </Style>
+                      <Style Selector="Button:pressed">
+                          <Setter Property="Background" Value="#333333"/>
+                      </Style>
+                      <Style Selector="local|GoogleChromeWindow[IsActive=False] /template/ Button">
+                          <Setter Property="Foreground" Value="#666666"/>
+                      </Style>
+                      <Style Selector="local|GoogleChromeWindow[IsActive=False] /template/ Button:pointerover">
+                          <Setter Property="Foreground" Value="#b8b8b8"/>
+                      </Style>
+                  </StackPanel.Styles>
+                <Button ToolTip.Tip="Свернуть" Command="{TemplateBinding CollapseCommand}">
+                      <Viewbox VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform" Width="12" Height="12">
+                        <Path Margin="-2  -2 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Data="M20,14H4V10H20"
+                              Fill="{Binding $parent[Button].Foreground}" />
+                      </Viewbox>
+                </Button>
+                <Button  Command="{TemplateBinding ExpandCommand}">
+                    <Button.Styles>
+                        <Style Selector="local|GoogleChromeWindow[WindowState=Maximized] Button">
+                            <Setter Property="ToolTip.Tip" Value="Восстановить"/>
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <Template>
+                                        <Viewbox VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform" Width="12" Height="12">
+                                            <Path Margin="-2 -2 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Data="M4,8H8V4H20V16H16V20H4V8M16,8V14H18V6H10V8H16M6,12V18H14V12H6Z"
+                                                  Fill="{Binding $parent[Button].Foreground}" />
+                                        </Viewbox>
+                                    </Template>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                        <Style Selector="local|GoogleChromeWindow[WindowState=Normal] Button">
+                            <Setter Property="ToolTip.Tip" Value="Развернуть"/>
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <Template>
+                                        <Viewbox VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform" Width="12" Height="12">
+                                            <Path Margin="-2 -2 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Data="M4,4H20V20H4V4M6,8V18H18V8H6Z"
+                                                  Fill="{Binding $parent[Button].Foreground}" />
+                                        </Viewbox>
+                                    </Template>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Styles>
+                </Button>
+                <Button ToolTip.Tip="Закрыть" Command="{TemplateBinding CloseCommand}">
+                    <Button.Styles>
+                        <Style Selector="Button:pointerover">
+                          <Setter Property="Background" Value="#E81123"/>
+                        </Style>
+                        <Style Selector="Button:pressed /template/ ContentPresenter">
+                            <Setter Property="Background" Value="#8A0A14"/>
+                        </Style>
+                    </Button.Styles>
+                    <Viewbox VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform" Width="12" Height="12">
+                    <Path Margin="-2 -2 0 0" VerticalAlignment="Center" HorizontalAlignment="Center"
+                          Data="M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z"
                           Fill="{Binding $parent[Button].Foreground}" />
-                  </Canvas>
-                </Button>
-                <Button Classes="SystemWindowButton">
-                  <Canvas Width="24" Height="24">
-                    <Path Data="M4,4H20V20H4V4M6,8V18H18V8H6Z"
-                          Fill="#666666" />
-                  </Canvas>
-                </Button>
-                <Button Classes="SystemWindowButton SystemMainCloseButtonStyle">
-                  <Canvas Width="24" Height="24">
-                    <Path
-                        Data="M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z"
-                        Fill="{Binding $parent[Button].Foreground}" />
-                  </Canvas>
+                  </Viewbox>
                 </Button>
               </StackPanel>
             </Grid>
@@ -102,52 +161,5 @@
         </Border>
       </ControlTemplate>
     </Setter>
-  </Style>
-
-  <Style Selector="Button.SystemWindowButton">
-    <Setter Property="Width" Value="44" />
-    <Setter Property="Height" Value="28" />
-    <Setter Property="Background" Value="Transparent"/>
-    <Setter Property="BorderBrush" Value="Transparent"/>
-    <Setter Property="BorderThickness" Value="0"/>
-    <Setter Property="Foreground" Value="White"/>
-    <Setter Property="HorizontalContentAlignment" Value="Center"/>
-    <Setter Property="VerticalContentAlignment" Value="Center"/>
-    <Setter Property="Padding" Value="4"/>
-    <Setter Property="Template">
-      <ControlTemplate>
-        <Border x:Name="Border"
-                Background="{TemplateBinding Background}"
-                BorderBrush="{TemplateBinding BorderBrush}"
-                BorderThickness="{TemplateBinding BorderThickness}"
-                CornerRadius="{TemplateBinding CornerRadius}">
-          <Viewbox Width="19"
-                   Height="19"
-                   Stretch="Uniform">
-            <ContentPresenter Background="Transparent" BorderThickness="0" BorderBrush="Transparent" Name="PART_ContentPresenter"
-                              ContentTemplate="{TemplateBinding ContentTemplate}"
-                              Content="{TemplateBinding Content}"
-                              Padding="{TemplateBinding Padding}"
-                              TextBlock.Foreground="{TemplateBinding Foreground}"
-                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
-
-          </Viewbox>
-        </Border>
-      </ControlTemplate>
-    </Setter>
-  </Style>
-  
-  <Style Selector="Button.SystemWindowButton:pointerover /template/ Border">
-    <Setter Property="Background" Value="#1A1A1A"/>
-  </Style>
-  <Style Selector="Button.SystemMainCloseButtonStyle:pointerover /template/ Border">
-    <Setter Property="Background" Value="#E81123"/>
-  </Style>
-  <Style Selector="Button.SystemWindowButton:pressed  /template/ Border">
-    <Setter Property="Background" Value="#333333"/>
-  </Style>
-  <Style Selector="Button.SystemMainCloseButtonStyle:pressed  /template/ Border">
-    <Setter Property="Background" Value="#8A0A14"/>
   </Style>
 </Styles>

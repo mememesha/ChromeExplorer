@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Input;
 
 namespace MikeV.WindowGoogleChrome.Wpf
@@ -69,16 +68,6 @@ namespace MikeV.WindowGoogleChrome.Wpf
 
             var behavior = new WindowResizeFixerBehavior();
             behavior.Attach(this);
-        }
-
-        #endregion
-
-        #region Protected Methods
-
-        protected override void OnClosing(CancelEventArgs e)
-        {
-            base.OnClosing(e);
-            Application.Current.Shutdown();
         }
 
         #endregion
