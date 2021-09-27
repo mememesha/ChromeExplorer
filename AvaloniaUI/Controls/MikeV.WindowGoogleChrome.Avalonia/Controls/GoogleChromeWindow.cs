@@ -4,11 +4,21 @@ using Avalonia.Controls;
 using Avalonia.Styling;
 using System;
 using System.Windows.Input;
+using Avalonia.Controls.Primitives;
+using Avalonia.Input;
 
 namespace MikeV.WindowGoogleChrome.Avalonia
 {
     public class GoogleChromeWindow:Window,IStyleable
     {
+        #region Private Fields
+
+        private const string TitleBarGrid = "TitleBarGrid";
+
+        private Grid? _titleBar;
+
+        #endregion
+
         #region  IStyleable
 
         Type IStyleable.StyleKey => typeof(GoogleChromeWindow);
@@ -65,10 +75,12 @@ namespace MikeV.WindowGoogleChrome.Avalonia
             ExpandCommand = new DelegateCommand(OnExpand);
 
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+            TransparencyLevelHint = WindowTransparencyLevel.AcrylicBlur;
         }
 
         #endregion
-        
+
         #region Private Methods
         private void OnClose(object param)
         {
@@ -90,6 +102,25 @@ namespace MikeV.WindowGoogleChrome.Avalonia
 
         #endregion
 
+        #region Protected Methods
+        protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
+        {
+            base.OnApplyTemplate(e);
+
+            _titleBar = e.NameScope.Get<Grid>(TitleBarGrid);
+        }
+
+        protected override void OnPointerPressed(PointerPressedEventArgs e)
+        {
+            base.OnPointerPressed(e);
+
+            if (Equals(e.Source, _titleBar))
+            {
+                BeginMoveDrag(e);
+            }
+        }
+
+        #endregion
 
     }
 }
