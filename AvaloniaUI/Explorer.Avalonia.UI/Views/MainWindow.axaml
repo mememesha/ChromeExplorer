@@ -103,7 +103,7 @@
           </Viewbox>
          </Button>
        
-        <TextBox  Grid.Column="3"
+        <TextBox Grid.Column="3"
                   VerticalAlignment="Center"
                   Margin="10 0"
                   Text="{Binding CurrentDirectoryTabItem.FilePath}">

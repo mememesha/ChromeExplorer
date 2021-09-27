@@ -1,9 +1,13 @@
 ﻿
 using System;
 using System.Globalization;
+using System.IO;
 using System.Windows.Data;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using Explorer.Shared.ViewModels;
+using SharpVectors.Converters;
+using SharpVectors.Renderers.Wpf;
 
 namespace Explorer.WPF.UI
 {
@@ -18,11 +22,28 @@ namespace Explorer.WPF.UI
                 if (resource is not ImageSource directoryImageSource) return drivingImage;
                 return directoryImageSource;
             }
-            else if(value is FileViewModel)
+            else if(value is FileViewModel fileViewModel)
             {
-                var resource = App.Current.TryFindResource("DocumentIconImage");
-                if (resource is not ImageSource fileImageSource) return drivingImage;
-                return fileImageSource;
+                var extention = Path.GetExtension(fileViewModel.FullName);
+
+                var imagePath = ExtentionToImageFileConverter.GetImagePath(extention);
+                if (imagePath.Extension.ToUpper() == ".SVG")
+                {
+                    var sesttings = new WpfDrawingSettings()
+                    {
+                        TextAsGeometry = false,
+                        IncludeRuntime = true,
+                    };
+                    var converter = new FileSvgReader(sesttings);
+                    var drawing = converter.Read(imagePath.FullName);
+                    if (drawing != null)
+                        return new DrawingImage(drawing);
+                }
+                else
+                {
+                    var bitmapSource = new BitmapImage(new Uri(imagePath.FullName));
+                    return bitmapSource;
+                }
             }
             return drivingImage;
         }
@@ -32,4 +53,6 @@ namespace Explorer.WPF.UI
             throw new NotImplementedException();
         }
     }
+
+
 }
