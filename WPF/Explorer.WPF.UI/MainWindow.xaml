@@ -14,10 +14,10 @@
                 <!--  Search TextBox  -->
                 <RowDefinition Height="36" />
                 <!--  BookMarks  -->
-                <RowDefinition Height="36" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <!--SearchTextBox-->
-            <Grid Grid.Row="0" Background="#35363A">
+            <Grid Grid.Row="0" Margin="0 0 0 -1" Background="#35363A">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="Auto" />
@@ -282,7 +282,7 @@
             </Grid>
 
             <!--BookMarks-->
-            <Grid Grid.Row="1" Background="#FF353535">
+            <Grid Visibility="Collapsed" Grid.Row="1" Background="#FF353535">
                 <Menu VerticalAlignment="Center" Background="Transparent">
                     <MenuItem Header="Games">
                         <MenuItem Header="C"/>
