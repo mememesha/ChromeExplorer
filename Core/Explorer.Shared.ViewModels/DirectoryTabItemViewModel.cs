@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 
 namespace Explorer.Shared.ViewModels
@@ -68,6 +69,10 @@ namespace Explorer.Shared.ViewModels
 
                 OpenDirectory();
             }
+            else if (parameter is FileViewModel fileViewModel)
+            {
+                Process.Start(fileViewModel.FullName);
+            }
         }
         private bool CanMoveBack(object obj) => _history.CanMoveBack;
         private void OnMoveBack(object obj)
@@ -103,15 +108,24 @@ namespace Explorer.Shared.ViewModels
             }
 
             var directoryInfo = new DirectoryInfo(FilePath);
-            foreach (var directory in directoryInfo.GetDirectories())
+
+            try
             {
-                DirectoriesAndFiles.Add(new DirectoryViewModel(directory));
+                foreach (var directory in directoryInfo.GetDirectories())
+                {
+                    DirectoriesAndFiles.Add(new DirectoryViewModel(directory));
+                }
+
+                foreach (var file in directoryInfo.GetFiles())
+                {
+                    DirectoriesAndFiles.Add(new FileViewModel(file));
+                }
+            }
+            catch (Exception e)
+            {
+                //todo try exception
             }
 
-            foreach (var file in directoryInfo.GetFiles())
-            {
-                DirectoriesAndFiles.Add(new FileViewModel(file));
-            }
         }
         private void _history_HistoryChanged(object sender, EventArgs e)
         {

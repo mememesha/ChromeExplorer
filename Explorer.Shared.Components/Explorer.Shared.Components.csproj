@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Explorer.Shared.ViewModels\Explorer.Shared.ViewModels.csproj" />
+  </ItemGroup>
+ 
+  <ItemGroup>
+    <None Update="Resources\Icons\high-contrast\**">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

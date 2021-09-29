@@ -28,6 +28,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\Explorer.Shared.ViewModels\Explorer.Shared.ViewModels.csproj" />
+    <ProjectReference Include="..\..\Explorer.Shared.Components\Explorer.Shared.Components.csproj" />
     <ProjectReference Include="..\Controls\MikeV.WindowGoogleChrome\MikeV.WindowGoogleChrome.Wpf.csproj" />
   </ItemGroup>
 
@@ -701,6 +702,10 @@
     <None Update="Icons\220-folder.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Helpers\" />
   </ItemGroup>
 
 </Project>

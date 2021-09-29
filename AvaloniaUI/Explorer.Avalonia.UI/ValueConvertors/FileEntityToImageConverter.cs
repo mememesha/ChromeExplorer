@@ -1,10 +1,13 @@
 ﻿
 using System;
+using System.Drawing.Imaging;
 using System.Globalization;
-using Avalonia.Controls;
+using System.IO;
 using Avalonia.Data.Converters;
-using Avalonia.Media;
+using Avalonia.Media.Imaging;
+using Explorer.Shared.Components;
 using Explorer.Shared.ViewModels;
+using Svg;
 
 namespace Explorer.Avalonia.UI
 {
@@ -12,37 +15,35 @@ namespace Explorer.Avalonia.UI
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            //var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
-            //var bitmap = new Bitmap(assets.Open(new Uri("avares://Explorer.Avalonia.UI/Assets/folder_icon.png")));
+            Bitmap drivingImage = null;
 
-            var drivingImage = new DrawingImage();
-            if (value is DirectoryViewModel)
+            if (!(value is FileEntityViewModel viewModel))
+                return drivingImage;
+
+            var imagePath = ChromerExpr.Instance.IconsManager.GetIconPath(viewModel);
+
+            if (imagePath.Extension.ToUpper() == ".SVG")
             {
-                Image img = new Image();
-             
-                if (App.Current.TryFindResource("FolderIconImagePng", out object? resource))
+                var svgDocument = SvgDocument.Open(imagePath.FullName);
+               
+                if (svgDocument != null)
                 {
-                    if (resource is IImage image)
-                    {
-                        return image;
-                    }
-                    if (resource is Image image2)
-                    {
-                        return image2.Source;
-                    }
+                    var bitmap = svgDocument.Draw();
+
+                    using var stream = new MemoryStream();
+
+                    bitmap.Save(stream,ImageFormat.Png);
+                    stream.Seek(0, SeekOrigin.Begin);
+
+                    return new Bitmap(stream);
                 }
             }
-            else if (value is FileViewModel)
+            else
             {
-                if (App.Current.TryFindResource("DocumentIconImage", out object? resource))
-                {
-                    if (resource is IImage image)
-                    {
-                        return image;
-                    }
-                }
+                return new Bitmap(imagePath.FullName);
             }
-            return (IImage)drivingImage;
+
+            return drivingImage;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

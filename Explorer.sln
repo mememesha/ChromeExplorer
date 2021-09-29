@@ -23,6 +23,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Controls", "Controls", "{DA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MikeV.WindowGoogleChrome.Avalonia", "AvaloniaUI\Controls\MikeV.WindowGoogleChrome.Avalonia\MikeV.WindowGoogleChrome.Avalonia.csproj", "{3718D4D7-34CE-4173-A27B-4DA6E4D2C172}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Explorer.Shared.Components", "Explorer.Shared.Components\Explorer.Shared.Components.csproj", "{391A5CEB-21C7-42B4-B5F8-6563A34773B0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{3718D4D7-34CE-4173-A27B-4DA6E4D2C172}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3718D4D7-34CE-4173-A27B-4DA6E4D2C172}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3718D4D7-34CE-4173-A27B-4DA6E4D2C172}.Release|Any CPU.Build.0 = Release|Any CPU
+		{391A5CEB-21C7-42B4-B5F8-6563A34773B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{391A5CEB-21C7-42B4-B5F8-6563A34773B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{391A5CEB-21C7-42B4-B5F8-6563A34773B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{391A5CEB-21C7-42B4-B5F8-6563A34773B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -61,6 +67,7 @@ Global
 		{675749EF-46BF-459F-B48D-2F9E1B0E21F8} = {68A8FD7A-23CF-46A1-BF39-B7E0A058D3DF}
 		{DAC5FDF5-2807-4A31-AC3D-DA30125D6037} = {B736D01A-FC56-46B9-B0F8-1B50890A72CE}
 		{3718D4D7-34CE-4173-A27B-4DA6E4D2C172} = {DAC5FDF5-2807-4A31-AC3D-DA30125D6037}
+		{391A5CEB-21C7-42B4-B5F8-6563A34773B0} = {CFD37BB4-900D-401E-994A-40E5BB48E37D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8C637F90-E86A-4DDE-86C4-F181A2A581F2}
