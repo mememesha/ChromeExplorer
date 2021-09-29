@@ -71,7 +71,14 @@ namespace Explorer.Shared.ViewModels
             }
             else if (parameter is FileViewModel fileViewModel)
             {
-                Process.Start(fileViewModel.FullName);
+                new Process
+                {
+                    StartInfo = new ProcessStartInfo(fileViewModel.FullName)
+                    {
+                        WorkingDirectory = Path.GetDirectoryName(fileViewModel.FullName),
+                        UseShellExecute = true
+                    }
+                }.Start();
             }
         }
         private bool CanMoveBack(object obj) => _history.CanMoveBack;
@@ -131,6 +138,15 @@ namespace Explorer.Shared.ViewModels
         {
             MoveBackCommand?.NotifyCanExecuteChanged();
             MoveForwardCommand?.NotifyCanExecuteChanged();
+        }
+
+        #endregion
+
+        #region Public Methods
+
+        public void Open(FileEntityViewModel viewModel)
+        {
+            Open((object)viewModel);
         }
 
         #endregion

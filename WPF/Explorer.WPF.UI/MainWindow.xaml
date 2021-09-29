@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:windowGoogleChrome="clr-namespace:MikeV.WindowGoogleChrome.Wpf;assembly=MikeV.WindowGoogleChrome.Wpf"
     xmlns:ui="clr-namespace:Explorer.WPF.UI"
+    xmlns:ViewModels="clr-namespace:Explorer.Shared.ViewModels;assembly=Explorer.Shared.ViewModels"
     mc:Ignorable="d">
 
     <windowGoogleChrome:GoogleChromeWindow.ToolBarContent>
@@ -282,12 +283,19 @@
             </Grid>
 
             <!--BookMarks-->
-            <Grid Visibility="Collapsed" Grid.Row="1" Background="#FF353535">
-                <Menu VerticalAlignment="Center" Background="Transparent">
-                    <MenuItem Header="Games">
-                        <MenuItem Header="C"/>
-                        <MenuItem Header="E"/>
-                    </MenuItem>
+            <Grid Visibility="Collapsed"  Grid.Row="1" Background="#FF353535">
+                <Menu ItemsSource="{Binding Bookmarks}">
+                    <Menu.Resources>
+                        <Style TargetType="{x:Type MenuItem}">
+                            <Setter Property="Header" Value="{Binding Header}"/>
+                            <Setter Property="ItemsSource" Value="{Binding Items}"/>
+                            <Setter Property="Command" Value="{Binding Command}"/>
+                            <Setter Property="CommandParameter" Value="{Binding CommandParameter}"/>
+                        </Style>
+                        <HierarchicalDataTemplate DataType="{x:Type ViewModels:MenuItemViewModel}"
+                                                  ItemsSource="{Binding  Path=Bookmarks}"
+                                                  />
+                    </Menu.Resources>
                 </Menu>
             </Grid>
         </Grid>
